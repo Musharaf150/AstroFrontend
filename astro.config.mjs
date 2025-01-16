@@ -1,4 +1,5 @@
 // @ts-check
+import vercelAdapter from '@astrojs/vercel';
 import { defineConfig } from 'astro/config';
 
 
@@ -8,5 +9,5 @@ export default defineConfig({
       defaultLocale: 'en',
       locales: ['ar', 'en'],
   },
-  output: 'server'
+  adapter: vercelAdapter(),
 });

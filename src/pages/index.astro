@@ -3,45 +3,42 @@ import About from '../components/About.astro';
 import Hero from '../components/Hero.astro';
 import Layout from '../layouts/Layout.astro';
 import fetchApi from '../lib/strapi';
+export const prerender = false
 
-export const prerender = false;
-
-const locale = Astro.url.searchParams.get('locale') || 'en'; // Default to 'en' if not provided
+const locale = Astro.url.searchParams.get('locale') || 'en';
 console.log('Server-side locale:', locale);
-console.log(locale)
+console.log('Current URL:', Astro.currentLocale);
 
 const pageData = await fetchApi({
     endpoint: 'pages',
-    page:'LandingPage',
+    page: 'LandingPage',
     wrappedByKey: 'data',
     locale: locale
 });
 
-    const heroData = pageData.find(pd => pd.__component === 'hero.hero');
-    const {heroText, heroDescription} =heroData;
-    
-    const aboutData = pageData.find(pd => pd.__component === 'about.about');
-    const {aboutText} = aboutData || {};
-    const {aboutPhoto} = aboutData;
-    const {url} = aboutPhoto[0];
+const heroData = pageData.find(pd => pd.__component === 'hero.hero');
+const { heroText, heroDescription } = heroData;
+
+const aboutData = pageData.find(pd => pd.__component === 'about.about');
+const { aboutText } = aboutData || {};
+const { aboutPhoto } = aboutData;
+const { url } = aboutPhoto[0];
 ---
 
 <Layout>
     {!pageData ? 
     <div>No Data Found!!!</div>
     :(
-
         <section id="homePage">
             <Hero {heroText} {heroDescription}/>
             <div id="separator"/>
             <About {aboutText} aboutPhotoUrl={url}/>
             <div id="localeSelector">
-    
                 <select id="languageSelect">
                     <option value="en" {locale === 'en' ? 'selected' : ''}>English</option>
                     <option value="ar" {locale === 'ar' ? 'selected' : ''}>العربية</option>
                 </select>
-    </div>
+            </div>
         </section>
     )}
 </Layout>

@@ -6,7 +6,6 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 
 const locale = Astro.url.pathname.includes('/blog/ar') ? 'ar' : 'en';
 
-
 export async function getStaticPaths() {
    // Define available locales
    const locales = ["en", "ar"];
