@@ -1,0 +1,29 @@
+---
+import About from '../components/About.astro';
+import Hero from '../components/Hero.astro';
+import Layout from '../layouts/Layout.astro';
+import fetchApi from '../lib/strapi';
+
+const pageData = await fetchApi({
+    endpoint: 'pages',
+    page:'LandingPage',
+    wrappedByKey: 'data'
+});
+
+const heroData = pageData.find(pd => pd.__component === 'hero.hero');
+const {heroText, heroDescription} =heroData || {};
+
+const aboutData = pageData.find(pd => pd.__component === 'about.about');
+const {aboutText} =aboutData || {};
+const {aboutPhoto} = aboutData;
+const {url} = aboutPhoto[0];
+---
+
+<Layout>
+    <section id="homePage">
+        <Hero {heroText} {heroDescription}/>
+        <div id="separator"/>
+        <About {aboutText} aboutPhotoUrl={url}/>
+
+    </section>
+</Layout>

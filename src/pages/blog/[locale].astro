@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+import fetchApi from "../../lib/strapi";
+import Layout from "../../layouts/Layout.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const locale = Astro.url.pathname.includes('/blog/ar') ? 'ar' : 'en';
+
+
+export async function getStaticPaths() {
+   // Define available locales
+   const locales = ["en", "ar"];
+
+// Generate static paths for each locale
+return locales.map((locale) => ({
+        params: { locale },
+    }));
+}
+
+console.log(`Fetched data for locale: ${locale}`);
+const data = await fetchApi({
+        endpoint: 'blogs',
+        wrappedByKey: 'data',
+        locale: locale
+    });
+---
+
+<Layout>
+    <div id="homeDiv">
+        {
+            data.map((item: any, index) => (
+                <div key={index}>
+                    <a href={`/blog${getRelativeLocaleUrl(locale)}${item.slug}`}>
+                        <Image
+                            src={`${import.meta.env.STRAPI_URL}${item.image[0].url}`}
+                            alt={item.title}
+                            height="300"
+                            width="300"
+                        />
+                    </a>
+                    <h1>{item.title}</h1>
+                </div>
+            ))
+        }
+    </div>
+</Layout>

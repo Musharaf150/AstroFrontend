@@ -1,0 +1,14 @@
+<!DOCTYPE html><html> <head><meta charset="utf-8"><link rel="icon" href="/favicon.svg" type="image/x-icon"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v5.1.6"><meta name="description" content="description"><title>Just a title</title></head><link rel="stylesheet" href="/styles/styles.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet"><body> <nav> <a href="/">Home</a> <a href="/blog">Blog</a> <div id="localeSelector"> <!-- Dropdown for language selection --> <select id="languageSelect"> <option value="en">English</option> <option value="ar">العربية</option> </select> </div> </nav> <script type="module">const l=document.querySelector("#languageSelect");l?.addEventListener("change",n=>{const a=n.target.value;let e;a==="ar"?e="/blog/ar":e="/blog/en",window.history.pushState({locale:a},"",e),window.location.reload()});const t=window.location.pathname.includes("/ar")?"ar":"en";l.value=t;</script> <main> <section>  <img src="http://127.0.0.1:1337/uploads/astro_118f644f0f.png" alt="introduction to Astro" width="400" height="400" loading="lazy" decoding="async"> <h1>introduction to Astro</h1> <article><h1>Introduction to Astro</h1>
+<p>Astro is a modern, lightweight, and performance-focused frontend framework designed to create fast and optimized websites. Built for developers who prioritize speed and simplicity, Astro leverages a unique approach by delivering only the essential assets to the browser.</p>
+<h2>Key Features of Astro</h2>
+<ul>
+<li><strong>Partial Hydration</strong>: Load JavaScript only where it&#39;s needed, reducing page load times and enhancing performance.</li>
+<li><strong>Framework-Agnostic</strong>: Use your favorite frameworks like React, Vue, Svelte, or even a mix of them within a single project.</li>
+<li><strong>Zero JS by Default</strong>: Astro generates static HTML by default, minimizing JavaScript bloat and ensuring a lightning-fast user experience.</li>
+<li><strong>Markdown-Friendly</strong>: Seamlessly integrate Markdown and MDX for content-rich sites.</li>
+<li><strong>Built-In Optimizations</strong>: Features like image optimization, prefetching, and bundling are included out of the box.</li>
+</ul>
+<h2>Why Choose Astro?</h2>
+<p>Astro is ideal for building modern websites that prioritize speed, accessibility, and performance. Whether it&#39;s a static site, a content-driven blog, or a high-traffic e-commerce platform, Astro&#39;s focus on delivering the minimal required assets ensures a faster and smoother browsing experience.</p>
+<p>Start your next project with Astro and experience the future of web development today!</p>
+</article>  </section> </main> </body></html>

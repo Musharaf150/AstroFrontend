@@ -1,0 +1,40 @@
+
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+    <div id="localeSelector">
+        <!-- Dropdown for language selection -->
+        <select id="languageSelect">
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+        </select>
+    </div>
+</nav>
+
+<script>
+    // Select the language dropdown
+    const languageSelect = document.querySelector("#languageSelect");
+
+    // Function to update the locale based on the selected option
+    languageSelect?.addEventListener("change", (event) => {
+        const selectedLocale = event.target.value;
+        let newUrl;
+
+        if (selectedLocale === "ar") {
+            // Update the URL to the Arabic locale
+            newUrl = "/blog/ar";
+        } else {
+            // Update the URL to the English locale
+            newUrl = "/blog/en";
+        }
+
+        // Update the history and reload to apply the selected locale
+        window.history.pushState({ locale: selectedLocale }, "", newUrl);
+        window.location.reload();
+    });
+
+    // Optional: Set the dropdown value based on the current URL
+    const currentLocale = window.location.pathname.includes("/ar") ? "ar" : "en";
+    languageSelect.value = currentLocale;
+</script>

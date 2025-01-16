@@ -1,0 +1,31 @@
+<!DOCTYPE html><html> <head><meta charset="utf-8"><link rel="icon" href="/favicon.svg" type="image/x-icon"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v5.1.6"><meta name="description" content="description"><title>Just a title</title></head><link rel="stylesheet" href="/styles/styles.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet"><body> <nav> <a href="/">Home</a> <a href="/blog">Blog</a> <div id="localeSelector"> <!-- Dropdown for language selection --> <select id="languageSelect"> <option value="en">English</option> <option value="ar">العربية</option> </select> </div> </nav> <script type="module">const l=document.querySelector("#languageSelect");l?.addEventListener("change",n=>{const a=n.target.value;let e;a==="ar"?e="/blog/ar":e="/blog/en",window.history.pushState({locale:a},"",e),window.location.reload()});const t=window.location.pathname.includes("/ar")?"ar":"en";l.value=t;</script> <main> <section>  <h1>صفحة: 1</h1> <ul id="ul"> <div class="card"> <a href="/blog/ar/astrw-me-straby"> <h1>استرو مع سترابي</h1> </a> <article><ol>
+<li><strong>إدارة المحتوى بسهولة</strong>: يوفر Strapi لوحة إدارة بديهية، مما يسهل على غير المطورين إدارة محتوى موقع الويب.</li>
+<li><strong>التكامل السلس لواجهة برمجة التطبيقات</strong>: جلب البيانات من Strapi باستخدام واجهات برمجة تطبيقات REST أو GraphQL وعرضها ديناميكيًا باستخدام Astro.</li>
+<li><strong>التسليم الأمثل</strong>: قم بتقديم JavaScript والأصول الأساسية فقط للمستخدمين باستخدام Astro، مما يعزز تجربة المستخدم.</li>
+<li><strong>متوافق مع السحابة</strong>: يمكنك استضافة Strapi على خدمات مثل Heroku أو AWS أو DigitalOcean، ونشر Astro على منصات مثل Vercel أو Netlify للحصول على حل قائم على السحابة بالكامل.</li>
+</ol>
+<h2>حالات الاستخدام</h2>
+<ul>
+<li><strong>المدونات والمحافظ</strong>: قم بإدارة المقالات والمشاريع بسهولة باستخدام Strapi، بينما يضمن Astro أن موقعك سريع وجذاب.</li>
+<li><strong>مواقع التجارة الإلكترونية</strong>: استخدم Strapi لإدارة كتالوجات المنتجات وAstro لواجهات متاجر سريعة وجذابة.</li>
+<li><strong>مواقع الويب الخاصة بالشركة</strong>: أنشئ مواقع ويب قابلة للتطوير وقابلة للصيانة وتعرض المحتوى الديناميكي بفعالية.</li>
+</ul>
+<h2>ابدء</h2>
+<ol>
+<li>قم بإعداد الواجهة الخلفية لـ Strapi لإدارة المحتوى.</li>
+<li>أنشئ واجهة Astro الأمامية الخاصة بك وادمجها مع واجهة برمجة التطبيقات الخاصة بـ Strapi.</li>
+<li>قم بنشر واجهة Strapi الخلفية وواجهة Astro الأمامية على منصاتك المفضلة.</li>
+</ol>
+<p>باستخدام Astro وStrapi، يمكنك إنشاء مواقع ويب حديثة وعالية الأداء يسهل إدارتها وممتعة للاستخدام. ابدأ رحلتك اليوم وأعد تعريف تجربة تطوير الويب الخاصة بك!</p>
+</article> </div><div class="card"> <a href="/blog/ar/mqdmt-ila-straby"> <h1>مقدمة إلى سترابي</h1> </a> <article><h1>مقدمة إلى سترابي</h1>
+<p>Strapi هو نظام إدارة محتوى مفتوح المصدر (CMS) يعمل على تمكين المطورين ومنشئي المحتوى من بناء تجارب رقمية مرنة وقابلة للتطوير وقابلة للتخصيص. تم تصميم Strapi مع وضع البساطة والأداء في الاعتبار، ويوفر لوحة إدارة بديهية وواجهة برمجة تطبيقات قوية لإدارة المحتوى دون عناء.</p>
+<h2>الميزات الرئيسية للسترابي</h2>
+<p> <strong>هندسة بدون رأس</strong>: قم بتوصيل المحتوى إلى أي نظام أساسي أو جهاز باستخدام واجهات برمجة تطبيقات RESTful أو GraphQL.
+ <strong>قابل للتخصيص</strong>: قم بتخصيص نظام إدارة المحتوى (CMS) ليناسب احتياجاتك المحددة باستخدام نظام مكون إضافي قابل للتوسيع ومسارات واجهة برمجة التطبيقات (API) القابلة للتخصيص.
+<strong>استضافة ذاتية</strong>: يمكنك استضافة مثيل Strapi الخاص بك أينما تفضل، مما يضمن التحكم الكامل في بياناتك.
+ <strong>مناسب للمطورين</strong>: تم تصميمه باستخدام تقنيات حديثة مثل Node.js وJavaScript، وهو يوفر تجربة مطورين سلسة.
+ <strong>إدارة المحتوى أصبحت سهلة</strong>: تعمل لوحة الإدارة سهلة الاستخدام على تبسيط إنشاء المحتوى وإدارته للمستخدمين غير التقنيين.</p>
+<h2>لماذا تختار سترابي؟</h2>
+<p>يقدم Strapi أفضل ما في كلا العالمين: نهج المطور الأول لبناء واجهات خلفية قوية وواجهة سهلة الاستخدام لإدارة المحتوى. سواء كنت تقوم بإنشاء مدونة بسيطة، أو منصة للتجارة الإلكترونية، أو تطبيق متعدد القنوات، فإن Strapi يوفر الأدوات التي تساعدك على النجاح.</p>
+<p>ابدأ في بناء مشروعك التالي باستخدام Strapi واطلق العنان لإمكانات نظام إدارة المحتوى (CMS) الحديث مقطوع الرأس!</p>
+</article> </div> </ul> <div class="pagination">  <a href="/blog/ar/2">الصفحة التالية</a> </div>  </section> </main> </body></html>

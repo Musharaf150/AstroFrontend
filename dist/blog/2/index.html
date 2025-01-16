@@ -1,0 +1,14 @@
+<!DOCTYPE html><html> <head><meta charset="utf-8"><link rel="icon" href="/favicon.svg" type="image/x-icon"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v5.1.6"><meta name="description" content="description"><title>Just a title</title></head><link rel="stylesheet" href="/styles/styles.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet"><body> <nav> <a href="/">Home</a> <a href="/blog">Blog</a> <div id="localeSelector"> <!-- Dropdown for language selection --> <select id="languageSelect"> <option value="en">English</option> <option value="ar">العربية</option> </select> </div> </nav> <script type="module">const l=document.querySelector("#languageSelect");l?.addEventListener("change",n=>{const a=n.target.value;let e;a==="ar"?e="/blog/ar":e="/blog/en",window.history.pushState({locale:a},"",e),window.location.reload()});const t=window.location.pathname.includes("/ar")?"ar":"en";l.value=t;</script> <main> <section>  <h1>Page: 2</h1> <ul id="ul"> <div class="card"> <a href="/blog/introduction-to-strapi"> <h1>introduction to Strapi</h1> </a> <article><h1>Introduction to Strapi</h1>
+<p>Strapi is an open-source headless Content Management System (CMS) that empowers developers and content creators to build flexible, scalable, and customizable digital experiences. Designed with simplicity and performance in mind, Strapi provides an intuitive admin panel and a robust API to manage content effortlessly.</p>
+<h2>Key Features of Strapi</h2>
+<ul>
+<li><strong>Headless Architecture</strong>: Deliver content to any platform or device using RESTful or GraphQL APIs.</li>
+<li><strong>Customizable</strong>: Tailor the CMS to your specific needs with an extensible plugin system and customizable API routes.</li>
+<li><strong>Self-Hosted</strong>: Host your Strapi instance wherever you prefer, ensuring complete control over your data.</li>
+<li><strong>Developer-Friendly</strong>: Built with modern technologies like Node.js and JavaScript, it provides a seamless developer experience.</li>
+<li><strong>Content Management Made Easy</strong>: The user-friendly admin panel simplifies content creation and management for non-technical users.</li>
+</ul>
+<h2>Why Choose Strapi?</h2>
+<p>Strapi offers the best of both worlds: a developer-first approach for building powerful backends and a user-friendly interface for managing content. Whether you&#39;re creating a simple blog, an e-commerce platform, or a multi-channel application, Strapi provides the tools to help you succeed.</p>
+<p>Start building your next project with Strapi and unlock the potential of a modern, headless CMS!</p>
+</article> </div> </ul> <div class="pagination"> <a href="/blog/1">Previous Page</a>  </div>  </section> </main> </body></html>

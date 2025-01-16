@@ -1,0 +1,34 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import fetchApi from "../lib/strapi";
+
+
+const data = await fetchApi({
+    endpoint: "blogs",
+    wrappedByKey: "data",
+});
+
+---
+
+<Layout>
+    <div id="homeDiv">
+        {
+            data.map((item: any, index) => (
+                <div key={index}>
+                    <a href={`/blog/${item.slug}`}>
+                        <Image
+                            src={`${import.meta.env.STRAPI_URL}${item.image[0].url}`}
+                            alt={item.title}
+                            height="200"
+                            width="200"
+                            class="pic"
+                        />
+                    </a>
+                    <h1>{item.title}</h1>
+                </div>
+            ))
+        }
+    </div>
+</Layout>
+

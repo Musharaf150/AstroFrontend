@@ -1,0 +1,14 @@
+<!DOCTYPE html><html> <head><meta charset="utf-8"><link rel="icon" href="/favicon.svg" type="image/x-icon"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v5.1.6"><meta name="description" content="description"><title>Just a title</title></head><link rel="stylesheet" href="/styles/styles.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet"><body> <nav> <a href="/">Home</a> <a href="/blog">Blog</a> <div id="localeSelector"> <!-- Dropdown for language selection --> <select id="languageSelect"> <option value="en">English</option> <option value="ar">العربية</option> </select> </div> </nav> <script type="module">const l=document.querySelector("#languageSelect");l?.addEventListener("change",n=>{const a=n.target.value;let e;a==="ar"?e="/blog/ar":e="/blog/en",window.history.pushState({locale:a},"",e),window.location.reload()});const t=window.location.pathname.includes("/ar")?"ar":"en";l.value=t;</script> <main> <section>  <img src="http://127.0.0.1:1337/uploads/astro_118f644f0f.png" alt="مقدمة إلى استرو" width="400" height="400" loading="lazy" decoding="async"> <h1>مقدمة إلى استرو</h1> <article><h1>مقدمة إلى استرو</h1>
+<p>Astro هو إطار عمل حديث وخفيف الوزن ويركز على الأداء، وهو مصمم لإنشاء مواقع ويب سريعة ومُحسّنة. تم تصميم Astro للمطورين الذين يعطون الأولوية للسرعة والبساطة، ويستفيد من أسلوب فريد من خلال تقديم الأصول الأساسية فقط إلى المتصفح.</p>
+<h2>الميزات الرئيسية لأسترو</h2>
+<ul>
+<li><strong>الترطيب الجزئي</strong>: قم بتحميل JavaScript فقط عند الحاجة إليه، مما يقلل أوقات تحميل الصفحة ويحسن الأداء.</li>
+<li><strong>غير محدد الإطار</strong>: استخدم أطر العمل المفضلة لديك مثل React أو Vue أو Svelte أو حتى مزيج منها ضمن مشروع واحد.</li>
+<li><strong>Zero JS افتراضيًا</strong>: يقوم Astro بإنشاء HTML ثابت بشكل افتراضي، مما يقلل من تضخم JavaScript ويضمن تجربة مستخدم سريعة للغاية.</li>
+<li><strong>Markdown-Friendly</strong>: دمج Markdown وMDX بسلاسة للمواقع الغنية بالمحتوى.</li>
+<li><strong>التحسينات المضمنة</strong>: يتم تضمين ميزات مثل تحسين الصورة والجلب المسبق والتجميع خارج الصندوق.</li>
+</ul>
+<h2>لماذا تختار استرو؟</h2>
+<p>يعد Astro مثاليًا لبناء مواقع الويب الحديثة التي تعطي الأولوية للسرعة وإمكانية الوصول والأداء. سواء كان موقعًا ثابتًا، أو مدونة قائمة على المحتوى، أو منصة للتجارة الإلكترونية ذات حركة مرور عالية، فإن تركيز Astro على تقديم الحد الأدنى من الأصول المطلوبة يضمن تجربة تصفح أسرع وأكثر سلاسة.</p>
+<p>ابدأ مشروعك التالي مع Astro واختبر مستقبل تطوير الويب اليوم!</p>
+</article>  </section> </main> </body></html>

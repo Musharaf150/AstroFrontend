@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import fetchApi from "../../../lib/strapi";
+import Layout from "../../../layouts/Layout.astro";
+import Marked from "../../../components/Marked.astro";
+
+
+export async function getStaticPaths() {
+    const articles = await fetchApi({
+        endpoint: 'blogs',
+        wrappedByKey: 'data',
+        locale: 'ar'
+    });
+    return articles.map((article)=>({
+        params: {
+            slug: article.slug
+        },
+        props: article
+    }))
+}
+const article = Astro.props;
+---
+
+<Layout>
+    <Image src={`${import.meta.env.STRAPI_URL}${article.image[0].url}`}
+    alt={article.title}
+    height="400"
+    width="400"/>
+<h1>{article.title}</h1>
+<Marked content={article.content}/>
+</Layout>

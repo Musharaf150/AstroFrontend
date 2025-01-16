@@ -1,0 +1,31 @@
+<!DOCTYPE html><html> <head><meta charset="utf-8"><link rel="icon" href="/favicon.svg" type="image/x-icon"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v5.1.6"><meta name="description" content="description"><title>Just a title</title></head><link rel="stylesheet" href="/styles/styles.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet"><body> <nav> <a href="/">Home</a> <a href="/blog">Blog</a> <div id="localeSelector"> <!-- Dropdown for language selection --> <select id="languageSelect"> <option value="en">English</option> <option value="ar">العربية</option> </select> </div> </nav> <script type="module">const l=document.querySelector("#languageSelect");l?.addEventListener("change",n=>{const a=n.target.value;let e;a==="ar"?e="/blog/ar":e="/blog/en",window.history.pushState({locale:a},"",e),window.location.reload()});const t=window.location.pathname.includes("/ar")?"ar":"en";l.value=t;</script> <main> <section>  <img src="http://127.0.0.1:1337/uploads/strapi_and_astro_cc5010bcb8.webp" alt="Astro with Strapi" width="400" height="400" loading="lazy" decoding="async"> <h1>Astro with Strapi</h1> <article><h1>Astro with Strapi</h1>
+<p>Astro with Strapi combines the best of both worlds: Astro’s ultra-fast, modern frontend framework and Strapi’s powerful, flexible headless CMS. Together, they create an ideal stack for building dynamic, content-driven websites with superior performance and developer experience.</p>
+<h2>Why Use Astro with Strapi?</h2>
+<ul>
+<li><strong>Blazing Performance</strong>: Astro&#39;s static site generation and partial hydration ensure lightning-fast load times, while Strapi provides a seamless backend for managing content.</li>
+<li><strong>Dynamic Content</strong>: Strapi allows you to create, organize, and manage content with ease, while Astro renders it beautifully on the frontend.</li>
+<li><strong>Flexibility</strong>: Build with your favorite JavaScript frameworks in Astro, such as React, Vue, or Svelte, while using Strapi’s robust API to deliver content.</li>
+<li><strong>SEO and Accessibility</strong>: Astro’s static-first approach improves SEO rankings and ensures optimal accessibility for users.</li>
+<li><strong>Customizable and Scalable</strong>: Strapi’s extensibility and Astro’s component-based architecture allow for easy scaling as your project grows.</li>
+</ul>
+<h2>Key Benefits of the Stack</h2>
+<ol>
+<li><strong>Effortless Content Management</strong>: Strapi provides an intuitive admin panel, making it easy for non-developers to manage website content.</li>
+<li><strong>Seamless API Integration</strong>: Fetch data from Strapi using REST or GraphQL APIs and render it dynamically with Astro.</li>
+<li><strong>Optimized Delivery</strong>: Deliver only the essential JavaScript and assets to users with Astro, enhancing the user experience.</li>
+<li><strong>Cloud-Friendly</strong>: Host Strapi on services like Heroku, AWS, or DigitalOcean, and deploy Astro on platforms like Vercel or Netlify for a fully cloud-based solution.</li>
+</ol>
+<h2>Use Cases</h2>
+<ul>
+<li><strong>Blogs and Portfolios</strong>: Manage articles and projects easily with Strapi, while Astro ensures your site is fast and visually appealing.</li>
+<li><strong>E-Commerce Sites</strong>: Use Strapi to manage product catalogs and Astro for quick, engaging storefronts.</li>
+<li><strong>Corporate Websites</strong>: Build scalable and maintainable websites that showcase dynamic content effectively.</li>
+</ul>
+<h2>Getting Started</h2>
+<ol>
+<li>Set up your Strapi backend for content management.</li>
+<li>Build your Astro frontend and integrate it with Strapi’s API.</li>
+<li>Deploy your Strapi backend and Astro frontend on your preferred platforms.</li>
+</ol>
+<p>With Astro and Strapi, you can build modern, high-performance websites that are easy to manage and delightful to use. Start your journey today and redefine your web development experience!</p>
+</article>  </section> </main> </body></html>
