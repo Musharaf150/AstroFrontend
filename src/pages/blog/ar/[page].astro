@@ -5,18 +5,24 @@ import fetchApi from '../../../lib/strapi';
 import Marked from '../../../components/Marked.astro';
 
 export async function getStaticPaths({paginate}) {
-    const response = await fetchApi({
+    try {
+        const response = await fetchApi({
         endpoint: 'blogs',
         wrappedByKey: 'data',
        locale: 'ar'
     });
-    const articles = response;
-    return paginate(articles, {pageSize: 2})
+     const articles = response || [];
+    return articles.length > 0 ? paginate(articles, { pageSize: 2 }) : []
+    } catch (error) {
+        console.error("Error fetching blog articles:", error);
+        return [];
+    }
 }
 const {page} = Astro.props;
 ---
 
 <Layout>
+    {page ? (
     <h1>صفحة: {page.currentPage}</h1>
     <ul id="ul">
         {page.data.map((article)=>(
@@ -34,4 +40,8 @@ const {page} = Astro.props;
         
         {page.url.next ? <a href={page.url.next}>الصفحة التالية</a>: null}
     </div>
+    ):
+    <div>
+        No Data Found!!!
+    </div>}
 </Layout>

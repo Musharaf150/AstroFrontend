@@ -6,26 +6,38 @@ import Marked from "../../../components/Marked.astro";
 
 
 export async function getStaticPaths() {
-    const articles = await fetchApi({
-        endpoint: 'blogs',
-        wrappedByKey: 'data',
-        locale: 'ar'
-    });
-    return articles.map((article)=>({
-        params: {
-            slug: article.slug
-        },
-        props: article
-    }))
+    try {
+        const articles = await fetchApi({
+            endpoint: 'blogs',
+            wrappedByKey: 'data',
+            locale: 'ar'
+        });
+        return article.length > 0 ? (articles.map((article)=>({
+            params: {
+                slug: article.slug
+            },
+            props: article
+        }))): [];  
+    } catch (error) {
+        console.error("Error fetching blog articles:", error);
+        return [];
+    }
 }
 const article = Astro.props;
 ---
 
 <Layout>
+    {article ? (
     <Image src={`${import.meta.env.STRAPI_URL}${article.image[0].url}`}
     alt={article.title}
     height="400"
     width="400"/>
 <h1>{article.title}</h1>
 <Marked content={article.content}/>
+
+    ):
+    <div>
+        No Data Found!!!
+    </div>
+    }
 </Layout>
