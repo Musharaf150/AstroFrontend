@@ -28,7 +28,9 @@ export default async function fetchApi({
     }else{
         url.searchParams.append('populate', '*');
     }
-    const res = await fetch(url.toString());
+
+    try {
+      const res = await fetch(url.toString());
     let data = await res.json();
   
     if (wrappedByKey) {
@@ -44,4 +46,9 @@ export default async function fetchApi({
     }
   
     return data;
+      
+    } catch (error) {
+      console.log(error.message)
+      return null;
+    }
   }

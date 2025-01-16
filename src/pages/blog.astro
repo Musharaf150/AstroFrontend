@@ -12,7 +12,8 @@ const data = await fetchApi({
 ---
 
 <Layout>
-    <div id="homeDiv">
+    {data ? (
+        <div id="homeDiv">
         {
             data.map((item: any, index) => (
                 <div key={index}>
@@ -30,5 +31,8 @@ const data = await fetchApi({
             ))
         }
     </div>
+    ):
+    <div>No Data Found!!!</div>
+    }
 </Layout>
 

@@ -10,20 +10,27 @@ const pageData = await fetchApi({
     wrappedByKey: 'data'
 });
 
-const heroData = pageData.find(pd => pd.__component === 'hero.hero');
-const {heroText, heroDescription} =heroData || {};
-
-const aboutData = pageData.find(pd => pd.__component === 'about.about');
-const {aboutText} =aboutData || {};
-const {aboutPhoto} = aboutData;
-const {url} = aboutPhoto[0];
+if(pageData){
+    const heroData = pageData.find(pd => pd.__component === 'hero.hero');
+    const {heroText, heroDescription} =heroData || {};
+    
+    const aboutData = pageData.find(pd => pd.__component === 'about.about');
+    const {aboutText} =aboutData || {};
+    const {aboutPhoto} = aboutData;
+    const {url} = aboutPhoto[0];
+}
 ---
 
 <Layout>
-    <section id="homePage">
-        <Hero {heroText} {heroDescription}/>
-        <div id="separator"/>
-        <About {aboutText} aboutPhotoUrl={url}/>
+    {!pageData ? 
+    <div>No Data Found!!!</div>
+    :(
 
-    </section>
+        <section id="homePage">
+            <Hero {heroText} {heroDescription}/>
+            <div id="separator"/>
+            <About {aboutText} aboutPhotoUrl={url}/>
+    
+        </section>
+    )}
 </Layout>
