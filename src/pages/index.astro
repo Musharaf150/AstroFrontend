@@ -10,15 +10,13 @@ const pageData = await fetchApi({
     wrappedByKey: 'data'
 });
 
-if(pageData){
     const heroData = pageData.find(pd => pd.__component === 'hero.hero');
-    const {heroText, heroDescription} =heroData || {};
+    const {heroText, heroDescription} =heroData;
     
     const aboutData = pageData.find(pd => pd.__component === 'about.about');
     const {aboutText} =aboutData || {};
     const {aboutPhoto} = aboutData;
     const {url} = aboutPhoto[0];
-}
 ---
 
 <Layout>

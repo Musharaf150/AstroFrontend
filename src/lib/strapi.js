@@ -10,7 +10,7 @@ export default async function fetchApi({
     if (endpoint.startsWith('/')) {
       endpoint = endpoint.slice(1);
     }
-  
+    
     const url = new URL(`${import.meta.env.STRAPI_URL}/api/${endpoint}`);
   
     if(locale) {

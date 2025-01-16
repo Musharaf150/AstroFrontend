@@ -33,7 +33,7 @@ const data = await fetchApi({
                 <div key={index}>
                     <a href={`/blog${getRelativeLocaleUrl(locale)}${item.slug}`}>
                         <Image
-                            src={`${import.meta.env.STRAPI_URL}${item.image[0].url}`}
+                            src={`${item.image[0].url}`}
                             alt={item.title}
                             height="300"
                             width="300"
