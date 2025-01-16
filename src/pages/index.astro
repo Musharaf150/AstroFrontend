@@ -4,10 +4,12 @@ import Hero from '../components/Hero.astro';
 import Layout from '../layouts/Layout.astro';
 import fetchApi from '../lib/strapi';
 
+export const prerender = false;
 
 const locale = Astro.url.searchParams.get('locale') || 'en'; // Default to 'en' if not provided
 console.log('Server-side locale:', locale);
 console.log(locale)
+
 const pageData = await fetchApi({
     endpoint: 'pages',
     page:'LandingPage',
@@ -19,7 +21,7 @@ const pageData = await fetchApi({
     const {heroText, heroDescription} =heroData;
     
     const aboutData = pageData.find(pd => pd.__component === 'about.about');
-    const {aboutText} =aboutData || {};
+    const {aboutText} = aboutData || {};
     const {aboutPhoto} = aboutData;
     const {url} = aboutPhoto[0];
 ---
