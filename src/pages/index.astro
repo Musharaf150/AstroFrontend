@@ -3,11 +3,16 @@ import About from '../components/About.astro';
 import Hero from '../components/Hero.astro';
 import Layout from '../layouts/Layout.astro';
 import fetchApi from '../lib/strapi';
+export const prerender = false;
 
+const locale = Astro.url.searchParams.get('locale') || 'en'; // Default to 'en' if not provided
+console.log('Server-side locale:', locale);
+console.log(locale)
 const pageData = await fetchApi({
     endpoint: 'pages',
     page:'LandingPage',
-    wrappedByKey: 'data'
+    wrappedByKey: 'data',
+    locale: locale
 });
 
     const heroData = pageData.find(pd => pd.__component === 'hero.hero');
@@ -28,7 +33,36 @@ const pageData = await fetchApi({
             <Hero {heroText} {heroDescription}/>
             <div id="separator"/>
             <About {aboutText} aboutPhotoUrl={url}/>
+            <div id="localeSelector">
     
+                <select id="languageSelect">
+                    <option value="en" {locale === 'en' ? 'selected' : ''}>English</option>
+                    <option value="ar" {locale === 'ar' ? 'selected' : ''}>العربية</option>
+                </select>
+    </div>
         </section>
     )}
 </Layout>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const select = document.querySelector('#languageSelect');
+        
+        // Initialize the dropdown to match the current locale
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentLocale = urlParams.get('locale') || 'en'; // Default to 'en'
+        select.value = currentLocale; // Set the dropdown's value to the current locale
+
+        // Add event listener for language selection
+        select.addEventListener('change', (event) => {
+            const selectedLocale = event.target.value; // Get the selected value
+            const url = new URL(window.location.href); // Get the current URL
+            url.searchParams.set('locale', selectedLocale); // Update the 'locale' query parameter
+            window.history.pushState({}, '', url); // Update the browser URL without reloading
+            console.log('Updated URL with locale:', url.toString());
+
+            // Reload the page to apply the new locale
+            location.reload();
+        });
+    });
+</script>

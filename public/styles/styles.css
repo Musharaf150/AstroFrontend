@@ -65,6 +65,12 @@ body #about {
 }
 #homePage {
     margin: 0px 30px;
+    position: relative;
+}
+#homePage #languageSelect{
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .pagination{
@@ -76,4 +82,8 @@ body #about {
     border-radius: 10px;
     padding: 0 1rem;
     width: 50%;
+}
+#blogSec{
+    display: flex;
+    padding: 0 1rem;
 }

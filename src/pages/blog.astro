@@ -8,10 +8,12 @@ const data = await fetchApi({
     endpoint: "blogs",
     wrappedByKey: "data",
 });
-console.log(data[0].slug)
+
 ---
 
 <Layout>
+    <section id="blogSec">
+
     {data ? (
         <div id="homeDiv">
         {
@@ -34,5 +36,40 @@ console.log(data[0].slug)
     ):
     <div>No Data Found!!!</div>
     }
+    <div id="localeSelector">
+        <!-- Dropdown for language selection -->
+        <select id="languageSelect">
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+        </select>
+    </div>
+</section>
 </Layout>
+
+<script>
+    // Select the language dropdown
+    const languageSelect = document.querySelector("#languageSelect");
+
+    // Function to update the locale based on the selected option
+    languageSelect?.addEventListener("change", (event) => {
+        const selectedLocale = event.target.value;
+        let newUrl;
+
+        if (selectedLocale === "ar") {
+            // Update the URL to the Arabic locale
+            newUrl = "/blog/ar";
+        } else {
+            // Update the URL to the English locale
+            newUrl = "/blog/en";
+        }
+
+        // Update the history and reload to apply the selected locale
+        window.history.pushState({ locale: selectedLocale }, "", newUrl);
+        window.location.reload();
+    });
+
+    // Optional: Set the dropdown value based on the current URL
+    const currentLocale = window.location.pathname.includes("/ar") ? "ar" : "en";
+    languageSelect.value = currentLocale;
+</script>
 
