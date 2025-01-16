@@ -26,7 +26,7 @@ const article = Astro.props;
 
 <Layout>
     {article ? (
-    <Image src={`${import.meta.env.STRAPI_URL}${article.image[0].url}`}
+    <Image src={`${article.image[0].url}`}
     alt={article.title}
     height="400"
     width="400"/>
