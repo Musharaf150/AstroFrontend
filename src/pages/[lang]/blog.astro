@@ -1,0 +1,76 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import fetchApi from "../../lib/strapi";
+
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: "ar", version: "v2" } },
+    { params: { lang: "en", version: "v1" } },
+  ];
+}
+const { lang } = Astro.params;
+const data = await fetchApi({
+    endpoint: "blogs",
+    wrappedByKey: "data",
+    locale: lang,
+});
+
+---
+
+<Layout>
+    <section id="blogSec">
+
+    {data ? (
+        <div id="homeDiv">
+        {
+            data.map((item: any, index) => (
+                <div key={index}>
+                    <a href={`blog/${item.slug}`}>
+                        <Image
+                            src={`${item.image[0].url}`}
+                            alt={item.title}
+                            height="200"
+                            width="200"
+                            class="pic"
+                        />
+                    </a>
+                    <h1>{item.title}</h1>
+                    {/* <a href={`/blog/${item.content}`}>See Content</a> */}
+                </div>
+            ))
+        }
+    </div>
+    ):
+    <div>No Data Found!!!</div>
+    }
+</section>
+</Layout>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const select = document.querySelector("#languageSelect");
+  
+      // Set the dropdown value to the current language on page load
+      const currentUrl = new URL(window.location.href);
+      const currentLang = currentUrl.pathname.split("/").slice(-2, -1)[0];
+      select.value = currentLang; // Sync the select dropdown with the current language
+  
+      // Add event listener for the select dropdown
+      select.addEventListener("change", (event) => {
+        const selectedLang = event.target.value;
+  
+        // Construct the new URL with the selected language
+        const segments = currentUrl.pathname.split("/");
+        const version = segments[segments.length - 1]; // Preserve version parameter
+        segments[segments.length - 2] = selectedLang; // Update the language
+        const newPath = segments.join("/");
+  
+        // Navigate to the updated URL
+        window.location.href = newPath;
+      });
+    });
+  </script>
+  
+

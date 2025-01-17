@@ -87,3 +87,12 @@ body #about {
     display: flex;
     padding: 0 1rem;
 }
+
+#slugmain{
+    padding: 0 3rem;
+}
+.slugImage{
+    width: auto;
+    max-height: 50%;
+    border-radius: 20px;
+}
